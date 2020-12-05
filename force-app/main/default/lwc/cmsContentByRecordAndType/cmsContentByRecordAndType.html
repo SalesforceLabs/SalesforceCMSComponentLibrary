@@ -1,0 +1,75 @@
+<template>
+    <template if:true={content}>
+        <!-- Card View -->
+        <template if:true={isCardDisplayStyle}>
+            <div class="cms-content-block">
+                <template if:true={items}>
+                    <template for:each={items} for:item="item">
+                        <div class="cms-card" key={item.managedContentId}>
+                            <lightning-card title={item.contentNodes.title.value}>
+                                <template if:true={item.contentNodes.bannerImage}>
+                                    <div class="cms-card-image">
+                                        <a href={item.contentUrlName}><img key={item.managedContentId} src={item.contentNodes.bannerImage.url} /></a>
+                                    </div>
+                                </template>
+                                <template if:true={item.contentNodes.excerpt}>
+                                    <p class="cms-card-body">
+                                        <lightning-formatted-rich-text key={item.managedContentId} value={item.contentNodes.excerpt.value}></lightning-formatted-rich-text>
+                                    </p>
+                                </template>
+                                    <div class="cms-card-footer">
+                                        <template if:true={item.associations}>
+                                            <p>Topics:</p>
+                                            <template for:each={item.associations.topics} for:item="topic">
+                                                <p key={topic.id}>{topic.name}</p>
+                                            </template>
+                                        </template>
+                                    </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </template>
+        <template if:true={isGalleryDisplayStyle}>
+            <div class="cms-gallery-controls">
+                <button class="slideLeft" type="button" onclick={slideLeft}>&lt;</button>
+                <button class="slideRight" type="button" onclick={slideRight}>&gt;</button>
+            </div>
+            <div class="cms-gallery-block">
+                <template if:true={items}>
+                    <template for:each={items} for:item="item">
+                        <div class="cms-card" key={item.managedContentId}>
+                            <lightning-card title={item.contentNodes.title.value}>
+                                <template if:true={item.contentNodes.bannerImage}>
+                                    <div class="cms-card-image">
+                                        <a href={item.contentUrlName}><img key={item.managedContentId} src={item.contentNodes.bannerImage.url} /></a>
+                                    </div>
+                                </template>
+                                <template if:true={item.contentNodes.excerpt}>
+                                    <p class="cms-card-body">
+                                        <lightning-formatted-rich-text key={item.managedContentId} value={item.contentNodes.excerpt.value}></lightning-formatted-rich-text>
+                                    </p>
+                                </template>
+                                    <div class="cms-card-footer">
+                                        <template if:true={item.associations}>
+                                            <p>Topics:</p>
+                                            <template for:each={item.associations.topics} for:item="topic">
+                                                <p key={topic.id}>{topic.name}</p>
+                                            </template>
+                                        </template>
+                                    </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </template>
+    </template>
+    <template if:true={error}>
+        <div>
+            <p>{error}</p>
+        </div>
+    </template>
+
+</template>

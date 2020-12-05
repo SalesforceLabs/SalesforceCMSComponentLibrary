@@ -1,0 +1,117 @@
+
+/* ===============================================
+/*                  Cards Styling
+/* =============================================== */
+
+div.cms-content-block {
+    margin-bottom: 10px;
+}
+
+div.my-new-class-rent-too-high {
+    margin-left: 10px;
+}
+
+/* CMS Card Body */
+div.cms-content-block div.cms-card {
+    margin-bottom: 20px;
+}
+
+p.cms-card-body-hidden {
+    display: none !important;
+}
+
+p.cms-card-body {
+    margin: 20px;
+}
+div.cms-card-footer {
+    margin: 20px;
+    font-size: 10px;
+    font-color: #666;
+}
+
+
+/* CMS Card Image */
+div.cms-card-image img {
+    border: 1px solid #000;
+    max-width: 90%;
+}
+div.cms-card-image {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+
+
+/* ===============================================
+/*                  Gallery Styling
+/* ===============================================  */
+
+/* CMS Gallery Block */
+div.cms-gallery-block {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+h2.slds-card__header-title .slds-truncate {
+    min-width: 100%;
+    line-height: var(--lwc-lineHeightHeading,2.0);
+    text-align: center;
+}
+
+
+div.cms-gallery-block::-webkit-scrollbar {
+    display: none;
+}
+
+div.cms-gallery-block div.cms-card {
+    flex: 0 0 auto;
+    max-width: 100%;
+    margin-right: 0px;
+    min-width: 100%;
+}
+
+div.cms-gallery-block div.cms-card:last-child {
+    margin-right: 0px;
+}
+
+div.cms-gallery-controls {
+    position: relative;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+div.cms-gallery-controls button.slideRight {
+    position: absolute;
+    top: 15vh;
+    right: 0;
+    z-index: 10;
+}
+
+div.cms-gallery-controls button.slideLeft{
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    z-index: 10;
+}
+
+div.cms-gallery-controls button.slideRight, div.cms-gallery-controls button.slideLeft {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    width: 30px;
+    padding-right: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: rgb(240,240,240,0.9);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: #555;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>CMS Content For This Record</masterLabel>
+    <description>Displays CMS content published to this community that is tagged with any of the Topics this record is tagged with. For use on a record detail page.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="recordId" label="Record Id" type="String" description="The Salesforce Id of the record to display CMS content for." required="true" default="{!recordId}" />
+            <property name="contentType" label="Managed Content Type" type="String" description="Select the CMS content type to display. Use the developer name of the CMS Content Type." default="news" required="true" />
+            <property name="numberContentItems" label="Max Content Items Returned" type="Integer" min="1" max="30" description="The maximum number of CMS content items to return." default="10" required="true" />
+            <property name="contentDisplayStyle" label="Collection Layout" type="String" description="The display style. Pick 'Grid' for multiple items displayed at once or 'Carousel' for a click-through slider of multiple items." required="true" datasource="Carousel,Grid" default="Carousel" />       
+            <property name="titleAttribute" label="CMS Title Field" type="String" description="Select a text field from the CMS content type to drive the component headline. Use the developer name for the CMS Content attribute you select." required="true" default="title" />
+            <property name="bodyAttribute" label="CMS Teaser Field" type="String" description="Select a long text field from the CMS content type to drive the teaser text on the component. Use the developer name for the CMS Content attribute you select." required="true" default="excerpt" />
+            <property name="imageAttribute" label="CMS Image Field" type="String" description="Select an image field from the CMS content type to power the images in the component. Use the developer name for the CMS Content attribute you choose. This MUST be a field/node of type Image." required="true" default="bannerImage" />
+            <property name="pathAttribute" label="CMS Page URL Path" type="String" description="If you customized your CMS item detail page, update this value with the exact path. By default, it's the same as the content type." required="true" default="news" />
+            <property name="linkAttribute" label="CMS Content Detail URL" type="String" description="The developer name for the CMS Content attribute for the content URL." required="true" default="unauthenticatedUrl" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
