@@ -80,6 +80,10 @@ public with sharing class ManagedContentController {
         
         System.debug('CMS Component Debug || Retrieving CMS Content for Community ' + communityId);
         
+        if ( topicIds.size() <= 0 ) {
+            //as no topics associated, return null instead of returning all content for a given managedContentType
+            return null;
+        }
         // convert topic IDs to names to work with the API
         List<Topic> topics = [select Name from Topic where Id in :topicIds and networkId = :communityId];
         List<String> topicNames = new List<String>();
